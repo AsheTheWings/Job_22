@@ -1,0 +1,218 @@
+@import url('./map.css');
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: #1a1a1a;
+}
+
+.app-container {
+    display: grid;
+    grid-template-columns: repeat(64, 1fr);
+    grid-template-rows: repeat(64, 1fr);
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.sidebar {
+    grid-column: 1 / 15;
+    grid-row: 1 / 65;
+    position: relative;
+    background-color: #242424;
+    border-right: 1px solid #363636;
+    padding: 20px;
+    color: #e1e1e1;
+    z-index: 100;
+    transition: transform 0.3s ease;
+}
+
+.main-content {
+    grid-row: 1 / 65;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1e1e1e;
+    padding: 20px;
+    transition: grid-column 0.3s ease;
+}
+
+.reset-button {
+    position: relative;
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px 20px;
+    background-color: #363636;
+    color: #e1e1e1;
+    border: 1px solid #484848;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.reset-button:hover {
+    background-color: #404040;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.style-selector {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #484848;
+    background-color: #363636;
+    color: #e1e1e1;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.style-selector:hover {
+    background-color: #404040;
+    border-color: #565656;
+}
+
+/* Responsive design for smaller screens */
+@media screen and (max-width: 768px) {
+    .app-container {
+        grid-template-columns: 1fr;
+        grid-template-areas: "main";
+    }
+
+    .sidebar {
+        display: none;
+    }
+}
+
+/* Sidebar elements spacing */
+.sidebar h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #e1e1e1;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.sidebar select {
+    margin-bottom: 15px;
+}
+
+.toggle-wrapper {
+    position: absolute;
+    left: 100%;
+    top: 20px;
+    transform: none;
+    z-index: 1000;
+}
+
+.toggle-button {
+    background: #363636;
+    border: 1px solid #484848;
+    border-radius: 0 4px 4px 0;
+    width: 24px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: all 0.3s ease;
+}
+
+.toggle-button:hover {
+    background-color: #404040;
+}
+
+.toggle-button svg {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.3s ease;
+}
+
+.toggle-button.collapsed svg {
+    transform: rotate(180deg);
+}
+
+.composer-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #242424;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.composer-input {
+    flex: 1;
+    width: 100%;
+    background: #2a2a2a;
+    border: 1px solid #3a3a3a;
+    border-radius: 4px;
+    color: white;
+    padding: 10px;
+    resize: none;
+    font-family: monospace;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.composer-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.composer-button {
+    padding: 8px 16px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.run-button {
+    background: #4CAF50;
+    color: white;
+}
+
+.run-button:hover {
+    background: #45a049;
+}
+
+.cancel-button {
+    background: #f44336;
+    color: white;
+}
+
+.cancel-button:hover {
+    background: #da190b;
+}
+
+.sidebar-button {
+    width: 100%;
+    padding: 8px 16px;
+    background: #3a3a3a;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.sidebar-button:hover {
+    background: #4a4a4a;
+}
+  
