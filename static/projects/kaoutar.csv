@@ -1,0 +1,7 @@
+name,kaoutar
+command,project, kaoutar
+command,highlight, test, all, unique
+command,wait, 5s
+command,focus, z1, morocco tangier, 9s
+command,wait, 2s
+command,focus, z1, western sahara dakhla, 20s

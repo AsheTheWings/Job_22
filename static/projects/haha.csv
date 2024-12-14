@@ -1,0 +1,5 @@
+name,haha
+command,project, haha
+command,highlight, regmorocco, all, unique
+command,wait, 3s
+command,focus, z1, morocco tangier, 5s

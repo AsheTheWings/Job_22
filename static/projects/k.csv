@@ -1,0 +1,5 @@
+name,k
+command,project, k
+command,highlight, test, Oriental, unique
+command,wait, 2s
+command,focus, z1, morocco casablanca, 5s

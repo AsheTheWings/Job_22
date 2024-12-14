@@ -1,0 +1,27 @@
+name,saga
+command,project, saga
+command,highlight, test, all, unique
+command,wait, 4s
+command,focus, z1, morocco tangier, 8s
+command,wait, 2s
+command,focus, z1, morocco oujda, 8s
+command,wait, 2s
+command,focus, z1, morocco fez, 8s
+command,wait, 2s
+command,focus, z1, morocco rabat, 8s
+command,wait, 2s
+command,focus, z1, morocco béni mellal, 8s
+command,wait, 2s
+command,focus, z1, morocco casablanca, 8s
+command,wait, 2s
+command,focus, z1, morocco marrakech, 8s
+command,wait, 2s
+command,focus, z1, morocco errachidia, 8s
+command,wait, 2s
+command,focus, z1, morocco agadir, 8s
+command,wait, 2s
+command,focus, z1, morocco guelmim, 8s
+command,wait, 2s
+command,focus, z1, western sahara laâyoune, 8s
+command,wait, 2s
+command,focus, z1, western sahara dakhla, 8s

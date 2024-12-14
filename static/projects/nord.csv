@@ -1,0 +1,7 @@
+name,nord
+command,project, nord
+command,highlight, test, "Tangier-Tetouan-Al Hoceima", unique  
+command,wait, 2s  
+command,focus, z1, morocco tangier, 5s
+command,wait, 2s  
+command,focus, z1, morocco oujda, 5s

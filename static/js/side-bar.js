@@ -1,3 +1,5 @@
+import { Composer } from './composer.js';
+
 class SidebarToggle {
     constructor() {
         this.sidebar = document.querySelector('.sidebar');
@@ -67,11 +69,50 @@ class SidebarToggle {
 class SidebarControls {
     constructor(map) {
         this.map = map;
+        this.mapContainer = document.getElementById('map');
+        this.initialMapConfig = {
+            container: 'map',
+            style: 'mapbox://styles/ashetools/cm3uy907600bn01sd131dhsqc',
+            center: [0, 20],
+            zoom: 2,
+            renderWorldCopies: false
+        };
         this.sidebar = document.querySelector('.sidebar');
         this.setupStyles();
         this.setupAspectRatios();
         this.setupResetButton();
         this.setupProjectSection();
+
+        this.sidebar.__sidebarInstance = this;
+    }
+
+    async reinitializeMap() {
+        // Remove the old map instance
+        this.map.remove();
+
+        // Create a new map instance
+        this.map = new mapboxgl.Map(this.initialMapConfig);
+
+        // Reinitialize controls
+        const navControl = new mapboxgl.NavigationControl();
+        this.map.addControl(navControl, 'top-right');
+
+        const fullscreenControl = new mapboxgl.FullscreenControl();
+        this.map.addControl(fullscreenControl, 'top-right');
+
+        // Wait for the new map to load
+        return new Promise((resolve) => {
+            this.map.on('load', () => {
+                // Remove disputed territory labels
+                const labelLayers = ['country-label'];
+                labelLayers.forEach(layer => {
+                    if (this.map.getLayer(layer)) {
+                        this.map.setFilter(layer, ['!=', ['get', 'disputed'], 'true']);
+                    }
+                });
+                resolve();
+            });
+        });
     }
 
     setupStyles() {
@@ -181,79 +222,37 @@ class SidebarControls {
     }
 
     setupProjectSection() {
-        // Create Project section title
-        const projectTitle = document.createElement('h3');
-        projectTitle.textContent = 'Project';
-        projectTitle.style.color = 'white';
-        projectTitle.style.marginBottom = '10px';
-        projectTitle.style.marginTop = '20px';
+        const composerTitle = document.createElement('h3');
+        composerTitle.textContent = 'Composer';
+        composerTitle.style.color = 'white';
+        composerTitle.style.marginBottom = '10px';
+        composerTitle.style.marginTop = '20px';
 
-        // Create Composer button
-        const composerButton = document.createElement('button');
-        composerButton.textContent = 'Composer';
-        composerButton.className = 'sidebar-button';
-        
-        // Create container for composer interface
-        const composerContainer = document.createElement('div');
-        composerContainer.className = 'composer-container';
-        composerContainer.style.display = 'none';
-
-        // Create text input
-        const textInput = document.createElement('textarea');
-        textInput.className = 'composer-input';
-        
-        // Create buttons container
+        // Container for buttons
         const buttonContainer = document.createElement('div');
-        buttonContainer.className = 'composer-buttons';
-        
-        // Create Run and Cancel buttons
-        const runButton = document.createElement('button');
-        runButton.textContent = 'Run';
-        runButton.className = 'composer-button run-button';
-        
-        const cancelButton = document.createElement('button');
-        cancelButton.textContent = 'Cancel';
-        cancelButton.className = 'composer-button cancel-button';
-        
-        // Add buttons to container
-        buttonContainer.appendChild(cancelButton);
-        buttonContainer.appendChild(runButton);
-        
-        // Add elements to composer container
-        composerContainer.appendChild(textInput);
-        composerContainer.appendChild(buttonContainer);
+        buttonContainer.className = 'composer-button-container';
+        buttonContainer.style.display = 'flex';
+        buttonContainer.style.gap = '10px';
 
-        // Store original elements to hide/show
-        const elementsToToggle = Array.from(this.sidebar.children);
-
-        // Add click handlers
-        composerButton.addEventListener('click', () => {
-            // Hide all existing elements
-            elementsToToggle.forEach(element => {
-                element.style.display = 'none';
-            });
-            
-            // Show composer container
-            composerContainer.style.display = 'flex';
-            this.sidebar.appendChild(composerContainer);
+        // Build button
+        const buildButton = document.createElement('button');
+        buildButton.textContent = 'Build';
+        buildButton.className = 'sidebar-button';
+        
+        // Add button to container
+        buttonContainer.appendChild(buildButton);
+        
+        // Initialize Composer
+        this.composer = new Composer(this.map, this);
+        
+        // Add click handler for build button
+        buildButton.addEventListener('click', () => {
+            this.composer.show();
         });
 
-        cancelButton.addEventListener('click', () => {
-            // Show all original elements
-            elementsToToggle.forEach(element => {
-                element.style.display = '';
-            });
-            composerContainer.style.display = 'none';
-        });
-
-        runButton.addEventListener('click', () => {
-            // TODO: Implement run functionality
-            console.log('Run clicked:', textInput.value);
-        });
-
-        // Append everything to sidebar
-        this.sidebar.appendChild(projectTitle);
-        this.sidebar.appendChild(composerButton);
+        // Append title and button container to sidebar
+        this.sidebar.appendChild(composerTitle);
+        this.sidebar.appendChild(buttonContainer);
     }
 }
 

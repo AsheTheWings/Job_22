@@ -1,0 +1,40 @@
+name,exports
+command,project, exports
+command,reset
+command,focus, -30.540638 26.091751, 0s, 9, 0, 0, 1
+command,wait, 2s
+command,highlight, bahrain, all, s3
+command,focus, 50.540638 26.091751, 5s, 9, 0, 0, 1
+command,focus, 50.540638 26.091751, 15s, 9, 35, 5, 1, timeout 5s
+command,highlight, morocco, all, s2
+command,focus, -7.262731 30.503624, 4s, 4, 0, 0, 1
+command,focus, -7.262731 30.503624, 20s, 4, 15, -15, 1, timeout 5s
+command,remove, last
+command,highlight, arab, algeria, s2
+command,focus, 5.609049 31.977425, 3s, 4, 0, 0, 0.1
+command,focus, 5.609049 31.977425, 30s, 4, 55, 50, 1, timeout 5s
+command,highlight, arab, oman, s3
+command,focus, 57.254321 20.701377, 3s, 5.5, 0, 0, 1
+command,focus, 57.254321 20.701377, 10s, 5.5, 40, 0, 1, timeout 5s
+command,remove, all
+command,highlight, arab, egypt, s2
+command,focus, 31.150413 28.706602, 2s, 4.5, 25, 0, 1
+command,focus, 31.150413 28.706602, 10s, 4.5, 25, 25, 1, timeout 5s
+command,highlight, arab, kuwait, s3
+command,focus, 48.188833 29.570606, 4s, 7, 0, 0, 1
+command,focus, 48.188833 29.570606, 20s, 7, 0, 90, 1, timeout 4s
+command,remove, all
+command,highlight, arab, iraq, s2
+command,focus, 45.480671 34.322816, 2s, 5, 0, 0, 1
+command,focus, 45.480671 34.322816, 10s, 5, 25, 10, 1, timeout 5s
+command,highlight, arab, qatar, s3
+command,focus, 51.260208 25.669065, 2s, 7, 0, 0, 1
+command,focus, 51.260208 25.669065, 15s, 7, 25, -10, 1, timeout 5s
+command,remove, all
+command,highlight, arab, United Arab Emirates, s3
+command,focus, 55.249262 25.225256, 3s, 6, 0, 0, 1
+command,focus, 45.669194 27.079128, 20s, 4, 25, -25, 1, timeout 5s
+command,remove, all
+command,highlight, arab, Saudi Arabia, s2
+command,focus, 45.669194 27.079128, 3s, 4, 0, 0, 1
+command,focus, 45.669194 27.079128, 20s, 4, 25, 20, 1, timeout 5s

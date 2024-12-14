@@ -1,0 +1,6 @@
+name,star
+command,project, star
+command,highlight, regmorocco, Oriental, unique
+command,wait, 1s
+command,remove, last
+command,highlight, regmorocco, all, unique

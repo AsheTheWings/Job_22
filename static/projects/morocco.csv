@@ -1,0 +1,38 @@
+name,morocco
+command,project, morocco
+command,highlight, test, "Tangier-Tetouan-Al Hoceima", unique  
+command,wait, 2s  
+command,focus, z1, morocco tangier, 5s  
+command,highlight, test, "Oujda-Oriental", unique  
+command,wait, 2s  
+command,focus, z1, morocco oujda, 5s  
+command,highlight, test, "Fez-Meknes", unique  
+command,wait, 2s  
+command,focus, z1, morocco fez, 5s  
+command,highlight, test, "Rabat-Salé-Kenitra", unique  
+command,wait, 2s  
+command,focus, z1, morocco rabat, 5s  
+command,highlight, test, "Béni Mellal-Khénifra", unique  
+command,wait, 2s  
+command,focus, z1, morocco beni mellal, 5s  
+command,highlight, test, "Casablanca-Settat", unique  
+command,wait, 2s  
+command,focus, z1, morocco casablanca, 5s  
+command,highlight, test, "Marrakech-Safi", unique  
+command,wait, 2s  
+command,focus, z1, morocco marrakech, 5s  
+command,highlight, test, "Errachidia-Drâa-Tafilalet", unique  
+command,wait, 2s  
+command,focus, z1, morocco errachidia, 5s  
+command,highlight, test, "Agadir-Souss-Massa", unique  
+command,wait, 2s  
+command,focus, z1, morocco agadir, 5s  
+command,highlight, test, "Guelmim-Oued Noun", unique  
+command,wait, 2s  
+command,focus, z1, morocco guelmim, 5s  
+command,highlight, test, "Laâyoune-Sakia El Hamra", unique  
+command,wait, 2s  
+command,focus, z1, morocco laayoune, 5s  
+command,highlight, test, "Dakhla-Oued Ed-Dahab", unique  
+command,wait, 2s  
+command,focus, z1, morocco dakhla, 5s

@@ -1,0 +1,26 @@
+fact: only the composer 'focus' command can move and change camera values.
+
+first phase, Animations recording
+loop commands
+    if command is focus
+        run mapbox builtin flyto method and store the camera pos during the animation.
+        the values storing should be fast and efficent to save as many frames as possible.
+    if any other command
+        skip
+
+run composer reset command between the two phases
+
+second phase, rendering frames
+    if command is focus
+        update the camera using the stored values.
+        capture and save the frame.
+    else
+        if the command is wait:
+            Use the duration parameter to calculate the number of frames to capture. Example: 'wait, 5s' will capture 150 frames (5s * 30fps).
+            capture current map state and save the frame.
+        if the command is 'highlight':
+            Execute it always with 5th parameter which is the number of frame to be drawn.
+            before saving the frame due to wait or focus command, Execute the 'remove, all' cammand to remove all drawn layers from the map then increment all the highlight cammands frames number.
+        else:
+            execute the composer cammand.
+            do nothing else, no capture, nothing

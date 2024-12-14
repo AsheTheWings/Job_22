@@ -1,0 +1,5 @@
+name,finally
+command,project, finally
+command,highlight, regmorocco, all, unique
+command,wait, 3s
+command,remove, last
